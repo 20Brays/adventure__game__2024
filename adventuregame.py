@@ -53,8 +53,15 @@ def surroundings_no():
 
 def ai_help():
     help = ""
-    while help not in ["1", "2", "3"]
-    help = input("Enter 1 to let me tell you a joke, enter 2 to add 2 numbers together, and enter 3 to go back")
+    while help not in ["1", "2", "3"]:
+        help = input("Enter 1 to let me tell you a joke, enter 2 to add 2 numbers together, and enter 3 to go back")
+
+def ai_option_1():
+    print("What do you call a man with a rubber toe?")
+    time.sleep(2)
+    print("Roberto! *wo-ch* Get back shadrack! Its all inside your mind!")
+    time.sleep2()
+    
 
 
     """
@@ -101,9 +108,15 @@ def main():
     method_2()
     surroundings_choice = describe_surroundings()
     if surroundings_choice == "Y":
-        surroundings_1()
+        surroundings_yes()
     else:
-        surroundings_2()
+        surroundings_no()
+        ai_help()
+
+        if ai_help == "1":
+            ai_option_1()
+
+
 
 if __name__ == "__main__":
     main()
