@@ -1,2 +1,2 @@
-# adventure__game__2024
-mine and Wez's adenture game
+# Adventure Game 2024
+Mine and Wez's adenture game!
