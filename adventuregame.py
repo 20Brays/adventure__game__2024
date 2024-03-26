@@ -27,8 +27,16 @@ def choose_method():
 def method_1():
     print("You try performing a LIDAR scan..")
     time.sleep(2)
-    print("The LIDAR system is not working.")
-    # Ask if want to debug if yes it works if no fails
+    print("The LIDAR scanner has failed ")
+#------------------------------------------------------------
+def lidar_option():
+    option = ""
+    while option not in ["1", "2"]:
+        option = input("Enter 1 to try debug the LIDAR scanner or enter 2 to go back")
+    return option
+#-------------------------------------------------------------
+def lidar_option_yes():
+    print("")
 #-------------------------------------------------------------
 def method_2():
     print("Congratulations! Your attempt to communicate with the onboard AI has been successful.")
@@ -61,11 +69,18 @@ def surroundings_yes():
 def stuck_droid():
     stuck_droid_choice = ""
     while stuck_droid_choice not in ["1", "2"]:
-        stuck_droid_choice = input("Enter 1 to make an Attempt to establish a stable connection with the droid's communication systems, hoping to gain control and maneuver it despite the damage. or enter 2 to Initiate emergency repairs on the droid's damaged systems, utilizing the limited tools and resources available in the capsule.")
+        stuck_droid_choice = input("Enter 1 to open the module latch and release the droid robot. or enter 2 to check the exterior cameras for possible hazards ")   
 #-------------------------------------------------------------   
 def stuck_droid_1():
-    print("You try to establish a connection with the droids movement systems,")
+    print("")
     #incomplete
+#-------------------------------------------------------------
+def stuck_droid_2():
+    print("Blue flames flicker from around the modules elongated tear shaped scar engraved deeply into the terrain.")
+    time.sleep(2)
+    print("The scar spans 300 metres ripping through a mess of wild alien tress and into the earth.")
+    time.sleep(2)
+    print("The module is covered in mud and clumps of shredded foliage, sparks fly and flicker from the ship a broken ")
 #-------------------------------------------------------------
 def surroundings_no():
     print("Okay, how can I help you?")
@@ -77,10 +92,22 @@ def ai_help():
     return help_choice
 #-------------------------------------------------------------
 def ai_option_1():
-    print("What do you call a man with a rubber toe?")
+    print("What do you call an italian with a toe consisting of (C 5 h 8)n?")
     time.sleep(2)
     print("Roberto! *wo-ch* Get back shadrack! Its all inside your mind!")
     time.sleep(2)
+    ai_help()
+#-------------------------------------------------------------
+def ai_option_2():
+    numOne = input("Enter the first number you would like to input.")
+    time.sleep(2)
+    numTwo = input("Enter the second number you would like to input")
+    print(numOne + numTwo)
+    ai_help()
+#-------------------------------------------------------------
+def ai_option_3():
+    print("going backwards")
+    describe_surroundings()
 #-------------------------------------------------------------
 def main():
     intro()
@@ -89,17 +116,23 @@ def main():
         method_1()
     elif method_choice == "2":
         method_2()
+        describe_surroundings()
         ai_choice = ai_help()
         if ai_choice == "1":
             ai_option_1()
-    else:
-        method_3()
+        elif ai_choice == "2":
+            ai_option_2()
+        elif ai_choice == "3":
+            ai_option_3()
+        else:
+            method_3()
 
-    surroundings_choice = describe_surroundings()
-    if surroundings_choice == "Y":
-        surroundings_yes()
-    else:
-        surroundings_no()
+    if method_choice == "3" and ai_choice != "3":
+        surroundings_choice = describe_surroundings()
+        if surroundings_choice == "Y":
+            surroundings_yes()
+        else:
+            surroundings_no()
 #-------------------------------------------------------------
 if __name__ == "__main__":
     main()
